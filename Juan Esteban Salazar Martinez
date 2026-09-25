@@ -1,0 +1,43 @@
+"""
+Practica 1 - Sistema de prestamo de biblioteca universitaria
+"""
+class Libro:
+    """Representa un libro fisico disponible en la biblioteca."""
+
+    def __init__(self, titulo, autor, isbn, ejemplares_totales):
+        self.titulo = titulo
+        self.autor = autor
+        self.isbn = isbn
+        self.ejemplares_totales = ejemplares_totales
+        self.ejemplares_disponibles = ejemplares_totales
+
+class Usuario:
+    """Representa a la persona que puede solicitar libros en prestamo."""
+
+    def __init__(self, nombre):
+        self.nombre = nombre
+
+class Prestamo:
+    """Relaciona un Libro con un Usuario en un momento dado."""
+
+    def __init__(self, libro, usuario, fecha_inicio, fecha_devolucion_esperada):
+        self.libro = libro
+        self.usuario = usuario
+        self.fecha_inicio = fecha_inicio
+        self.fecha_devolucion_esperada = fecha_devolucion_esperada
+
+if __name__ == "__main__":
+    libro_1 = Libro("Fluent Python", "Luciano Ramalho", "978-1492056355", 3)
+    usuario_1 = Usuario("Juan")
+    prestamo_1 = Prestamo(
+        libro=libro_1,
+        usuario=usuario_1,
+        fecha_inicio="2026-09-21",
+        fecha_devolucion_esperada="2026-10-05"
+    )
+
+    print(f"{prestamo_1.usuario.nombre} tomo prestado '{prestamo_1.libro.titulo}'")
+    print(f"Autor: {prestamo_1.libro.autor}")
+    print(f"Ejemplares disponibles: {prestamo_1.libro.ejemplares_disponibles}")
+    print(f"Fecha de inicio del prestamo: {prestamo_1.fecha_inicio}")
+    print(f"Debe devolverlo antes de: {prestamo_1.fecha_devolucion_esperada}")
